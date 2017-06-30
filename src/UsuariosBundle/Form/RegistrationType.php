@@ -18,6 +18,8 @@ class RegistrationType extends AbstractType
         $builder->add('facebook');
         $builder->add('instagram');
         $builder->add('social');
+        
+        $builder->remove("social");
     }
 
     public function getParent()
