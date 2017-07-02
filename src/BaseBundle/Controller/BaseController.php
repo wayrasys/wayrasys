@@ -11,7 +11,8 @@ class BaseController extends Controller
 {
     protected function renderRequest(Request $request, $view, array $parameters = array(), Response $response = null, BaseJSon $jsData = null)
     {
-        if (!$request->isXmlHttpRequest()){//JSON
+        if ($request->isXmlHttpRequest()){//JSON
+            $parameters["ajax"] = TRUE;
             if ($jsData == null){
                 $jsData = new BaseJSon();
                 $jsData->js = "";
@@ -22,6 +23,7 @@ class BaseController extends Controller
             $jsData->view = $this->renderView($view,$parameters);
             return new JsonResponse($jsData);
         }else{
+            $parameters["ajax"] = FALSE;
             return $this->render($view,$parameters ,$response);
         }
     }

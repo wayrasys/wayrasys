@@ -45,8 +45,7 @@ class UsuarioController extends BaseController
 
 
         return $this->renderRequest($request, 'UsuariosBundle:Usuario:nuevo.html.twig', array(
-            'form' => $form->createView(),
-            'ajax'=>false
+            'form' => $form->createView()
         ));
     }
 }
