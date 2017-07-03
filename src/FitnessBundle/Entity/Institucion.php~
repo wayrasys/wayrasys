@@ -138,30 +138,5 @@ class Institucion
     {
         return $this->sucursal;
     }
-    
-    /**
-     * Socios.
-     * @ManyToMany(targetEntity="Usuario")
-     * @JoinTable(name="socio",
-     *      joinColumns={@JoinColumn(name="institucion", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="usuario", referencedColumnName="id")}
-     *      )
-     */
-    private $socios;
-    
-    /**
-     * Administradores.
-     * @ManyToMany(targetEntity="Usuario")
-     * @JoinTable(name="administrador",
-     *      joinColumns={@JoinColumn(name="institucion", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="usuario", referencedColumnName="id")}
-     *      )
-     */
-    private $administradores;
-    
-    
-    public function __construct() {
-        $this->socios = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->administradores = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 }
+
