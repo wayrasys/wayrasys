@@ -6,7 +6,9 @@
       <unique-constraint name="UNIQ_2265B05DA0D96FBF" columns="email_canonical"/>
       <unique-constraint name="UNIQ_2265B05DC05FB297" columns="confirmation_token"/>
     </unique-constraints>
-    <id name="id" association-key="true"/>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
     <field name="username" type="string" column="username" length="180" nullable="false">
       <options>
         <option name="fixed"/>
@@ -97,10 +99,5 @@
       </options>
     </field>
     <field name="fechacreacion" type="date" column="fechacreacion" nullable="false"/>
-    <one-to-one field="id" target-entity="Socio" fetch="LAZY">
-      <join-columns>
-        <join-column name="id" referenced-column-name="logusuario"/>
-      </join-columns>
-    </one-to-one>
   </entity>
 </doctrine-mapping>

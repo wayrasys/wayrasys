@@ -4,10 +4,22 @@
     <indexes>
       <index name="institucion" columns="institucion"/>
       <index name="usuario" columns="usuario"/>
+      <index name="fk_administrador_usuario1_idx" columns="autorizadoPor"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
+    <field name="fechaalta" type="datetime" column="fechaAlta" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <field name="habilitado" type="boolean" column="habilitado" nullable="false"/>
+    <field name="log" type="text" column="log" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
     <many-to-one field="institucion" target-entity="Institucion" fetch="LAZY">
       <join-columns>
         <join-column name="institucion" referenced-column-name="id"/>
@@ -16,6 +28,11 @@
     <many-to-one field="usuario" target-entity="Usuario" fetch="LAZY">
       <join-columns>
         <join-column name="usuario" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="autorizadopor" target-entity="Usuario" fetch="LAZY">
+      <join-columns>
+        <join-column name="autorizadoPor" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

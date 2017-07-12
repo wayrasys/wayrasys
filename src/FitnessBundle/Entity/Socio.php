@@ -2,169 +2,83 @@
 
 namespace FitnessBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Socio
+ *
+ * @ORM\Table(name="socio", indexes={@ORM\Index(name="institucion", columns={"institucion"}), @ORM\Index(name="usuario", columns={"usuario"}), @ORM\Index(name="logusuario", columns={"asociadopor"})})
+ * @ORM\Entity
  */
 class Socio
 {
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaAlta", type="datetime", nullable=false)
+     */
+    private $fechaalta = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaBaja", type="datetime", nullable=true)
+     */
+    private $fechabaja;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="habilitado", type="boolean", nullable=false)
+     */
+    private $habilitado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="log", type="text", length=65535, nullable=true)
+     */
+    private $log;
+
+    /**
      * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
+     * @var \UsuariosBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="UsuariosBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="asociadopor", referencedColumnName="id")
+     * })
+     */
+    private $asociadopor;
+
+    /**
      * @var \FitnessBundle\Entity\Institucion
+     *
+     * @ORM\ManyToOne(targetEntity="FitnessBundle\Entity\Institucion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="institucion", referencedColumnName="id")
+     * })
      */
     private $institucion;
 
     /**
      * @var \UsuariosBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="UsuariosBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario", referencedColumnName="id")
+     * })
      */
     private $usuario;
 
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set institucion
-     *
-     * @param \FitnessBundle\Entity\Institucion $institucion
-     *
-     * @return Socio
-     */
-    public function setInstitucion(\FitnessBundle\Entity\Institucion $institucion = null)
-    {
-        $this->institucion = $institucion;
-
-        return $this;
-    }
-
-    /**
-     * Get institucion
-     *
-     * @return \FitnessBundle\Entity\Institucion
-     */
-    public function getInstitucion()
-    {
-        return $this->institucion;
-    }
-
-    /**
-     * Set usuario
-     *
-     * @param \UsuariosBundle\Entity\Usuario $usuario
-     *
-     * @return Socio
-     */
-    public function setUsuario(\UsuariosBundle\Entity\Usuario $usuario = null)
-    {
-        $this->usuario = $usuario;
-
-        return $this;
-    }
-
-    /**
-     * Get usuario
-     *
-     * @return \UsuariosBundle\Entity\Usuario
-     */
-    public function getUsuario()
-    {
-        return $this->usuario;
-    }
-    /**
-     * @var \DateTime
-     */
-    private $fechaalta = 'CURRENT_TIMESTAMP';
-
-    /**
-     * @var integer
-     */
-    private $logusuario;
-
-    /**
-     * @var string
-     */
-    private $jsdetalle;
-
-
-    /**
-     * Set fechaalta
-     *
-     * @param \DateTime $fechaalta
-     *
-     * @return Socio
-     */
-    public function setFechaalta($fechaalta)
-    {
-        $this->fechaalta = $fechaalta;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaalta
-     *
-     * @return \DateTime
-     */
-    public function getFechaalta()
-    {
-        return $this->fechaalta;
-    }
-
-    /**
-     * Set logusuario
-     *
-     * @param integer $logusuario
-     *
-     * @return Socio
-     */
-    public function setLogusuario($logusuario)
-    {
-        $this->logusuario = $logusuario;
-
-        return $this;
-    }
-
-    /**
-     * Get logusuario
-     *
-     * @return integer
-     */
-    public function getLogusuario()
-    {
-        return $this->logusuario;
-    }
-
-    /**
-     * Set jsdetalle
-     *
-     * @param string $jsdetalle
-     *
-     * @return Socio
-     */
-    public function setJsdetalle($jsdetalle)
-    {
-        $this->jsdetalle = $jsdetalle;
-
-        return $this;
-    }
-
-    /**
-     * Get jsdetalle
-     *
-     * @return string
-     */
-    public function getJsdetalle()
-    {
-        return $this->jsdetalle;
-    }
 }
+

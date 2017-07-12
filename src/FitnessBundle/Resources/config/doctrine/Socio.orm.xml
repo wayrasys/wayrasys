@@ -4,26 +4,29 @@
     <indexes>
       <index name="institucion" columns="institucion"/>
       <index name="usuario" columns="usuario"/>
-      <index name="logusuario" columns="logusuario"/>
+      <index name="logusuario" columns="asociadopor"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="fechaalta" type="datetime" column="fechaalta" nullable="false">
+    <field name="fechaalta" type="datetime" column="fechaAlta" nullable="false">
       <options>
         <option name="default">CURRENT_TIMESTAMP</option>
       </options>
     </field>
-    <field name="logusuario" type="integer" column="logusuario" nullable="false">
-      <options>
-        <option name="unsigned"/>
-      </options>
-    </field>
-    <field name="jsdetalle" type="text" column="jsdetalle" length="65535" nullable="false">
+    <field name="fechabaja" type="datetime" column="fechaBaja" nullable="true"/>
+    <field name="habilitado" type="boolean" column="habilitado" nullable="false"/>
+    <field name="log" type="text" column="log" length="65535" nullable="true">
       <options>
         <option name="fixed"/>
+        <option name="comment">log de cambio de usuario</option>
       </options>
     </field>
+    <many-to-one field="asociadopor" target-entity="Usuario" fetch="LAZY">
+      <join-columns>
+        <join-column name="asociadopor" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
     <many-to-one field="institucion" target-entity="Institucion" fetch="LAZY">
       <join-columns>
         <join-column name="institucion" referenced-column-name="id"/>

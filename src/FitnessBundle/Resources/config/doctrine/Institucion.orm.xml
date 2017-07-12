@@ -22,6 +22,22 @@
         <option name="fixed"/>
       </options>
     </field>
+    <field name="htmlpresentacion" type="text" column="htmlpresentacion" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+        <option name="comment">html de la presentacion y stilos</option>
+      </options>
+    </field>
+    <field name="logo" type="string" column="logo" length="100" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="horario" type="text" column="horario" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
     <many-to-one field="sucursal" target-entity="Institucion" fetch="LAZY">
       <join-columns>
         <join-column name="sucursal" referenced-column-name="id"/>
