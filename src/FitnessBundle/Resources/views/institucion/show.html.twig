@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Institucion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ institucion.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ institucion.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ institucion.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Htmlpresentacion</th>
+                <td>{{ institucion.htmlpresentacion }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ institucion.logo }}</td>
+            </tr>
+            <tr>
+                <th>Horario</th>
+                <td>{{ institucion.horario }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ institucion.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('institucion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('institucion_edit', { 'id': institucion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

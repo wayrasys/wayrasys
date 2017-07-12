@@ -3,6 +3,7 @@
 namespace FitnessBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+// php app/console doctrine:generate:entities AppBundle/Entity/Product
 
 /**
  * Institucion
@@ -74,5 +75,181 @@ class Institucion
     private $sucursal;
 
 
-}
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Institucion
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
 
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return Institucion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set direccion
+     *
+     * @param string $direccion
+     *
+     * @return Institucion
+     */
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    /**
+     * Get direccion
+     *
+     * @return string
+     */
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    /**
+     * Set htmlpresentacion
+     *
+     * @param string $htmlpresentacion
+     *
+     * @return Institucion
+     */
+    public function setHtmlpresentacion($htmlpresentacion)
+    {
+        $this->htmlpresentacion = $htmlpresentacion;
+
+        return $this;
+    }
+
+    /**
+     * Get htmlpresentacion
+     *
+     * @return string
+     */
+    public function getHtmlpresentacion()
+    {
+        return $this->htmlpresentacion;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Institucion
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set horario
+     *
+     * @param string $horario
+     *
+     * @return Institucion
+     */
+    public function setHorario($horario)
+    {
+        $this->horario = $horario;
+
+        return $this;
+    }
+
+    /**
+     * Get horario
+     *
+     * @return string
+     */
+    public function getHorario()
+    {
+        return $this->horario;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set sucursal
+     *
+     * @param \FitnessBundle\Entity\Institucion $sucursal
+     *
+     * @return Institucion
+     */
+    public function setSucursal(\FitnessBundle\Entity\Institucion $sucursal = null)
+    {
+        $this->sucursal = $sucursal;
+
+        return $this;
+    }
+
+    /**
+     * Get sucursal
+     *
+     * @return \FitnessBundle\Entity\Institucion
+     */
+    public function getSucursal()
+    {
+        return $this->sucursal;
+    }
+}
