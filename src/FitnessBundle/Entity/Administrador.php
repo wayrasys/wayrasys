@@ -53,9 +53,9 @@ class Administrador
     private $institucion;
 
     /**
-     * @var \FitnessBundle\Entity\Usuario
+     * @var \UsuariosBundle\Entity\Usuario
      *
-     * @ORM\ManyToOne(targetEntity="FitnessBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="UsuariosBundle\Entity\Usuario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="usuario", referencedColumnName="id")
      * })
@@ -63,9 +63,9 @@ class Administrador
     private $usuario;
 
     /**
-     * @var \FitnessBundle\Entity\Usuario
+     * @var \UsuariosBundle\Entity\Usuario
      *
-     * @ORM\ManyToOne(targetEntity="FitnessBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="UsuariosBundle\Entity\Usuario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="autorizadoPor", referencedColumnName="id")
      * })

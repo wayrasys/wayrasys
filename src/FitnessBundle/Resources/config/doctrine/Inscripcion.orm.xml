@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="FitnessBundle\Entity\Actividades" table="actividades">
+  <entity name="FitnessBundle\Entity\Inscripcion" table="inscripcion">
     <indexes>
-      <index name="fk_institucion_has_actividad_institucion1_idx" columns="institucion"/>
-      <index name="fk_actividades_actividad1_idx" columns="actividad"/>
+      <index name="fk_inscripcion_socio_idx" columns="socio"/>
+      <index name="fk_inscripcion_actividad2_idx" columns="actividad"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="horario" type="text" column="horario" length="65535" nullable="true">
+    <field name="fechaalta" type="datetime" column="fechaAlta" nullable="false">
       <options>
-        <option name="fixed"/>
-        <option name="comment">JSon del horario (para visualizacion)</option>
+        <option name="default">CURRENT_TIMESTAMP</option>
       </options>
     </field>
-    <field name="precio" type="float" column="precio" precision="6" scale="2" nullable="true"/>
+    <field name="fechabaja" type="datetime" column="fechaBaja" nullable="true"/>
+    <field name="habilitado" type="boolean" column="habilitado" nullable="true"/>
+    <field name="log" type="text" column="log" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
     <many-to-one field="actividad" target-entity="Actividad" fetch="LAZY">
       <join-columns>
         <join-column name="actividad" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="institucion" target-entity="Institucion" fetch="LAZY">
+    <many-to-one field="socio" target-entity="Socio" fetch="LAZY">
       <join-columns>
-        <join-column name="institucion" referenced-column-name="id"/>
+        <join-column name="socio" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>

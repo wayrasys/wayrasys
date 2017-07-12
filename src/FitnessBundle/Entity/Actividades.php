@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Actividades
  *
- * @ORM\Table(name="actividades", indexes={@ORM\Index(name="fk_institucion_has_actividad_actividad1_idx", columns={"actividad_id"}), @ORM\Index(name="fk_institucion_has_actividad_institucion1_idx", columns={"institucion_id"})})
+ * @ORM\Table(name="actividades", indexes={@ORM\Index(name="fk_institucion_has_actividad_institucion1_idx", columns={"institucion"}), @ORM\Index(name="fk_actividades_actividad1_idx", columns={"actividad"})})
  * @ORM\Entity
  */
 class Actividades
@@ -40,7 +40,7 @@ class Actividades
      *
      * @ORM\ManyToOne(targetEntity="FitnessBundle\Entity\Actividad")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="actividad_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="actividad", referencedColumnName="id")
      * })
      */
     private $actividad;
@@ -50,7 +50,7 @@ class Actividades
      *
      * @ORM\ManyToOne(targetEntity="FitnessBundle\Entity\Institucion")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="institucion_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="institucion", referencedColumnName="id")
      * })
      */
     private $institucion;

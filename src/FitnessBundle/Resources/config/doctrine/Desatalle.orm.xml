@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="FitnessBundle\Entity\Desatalle" table="desatalle">
+    <indexes>
+      <index name="fk_desatalle_liquidacion1_idx" columns="liquidacion"/>
+      <index name="fk_desatalle_inscripcion1_idx" columns="inscripcion"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="monto" type="float" column="monto" precision="6" scale="2" nullable="true"/>
+    <field name="fecha" type="datetime" column="fecha" nullable="true"/>
+    <many-to-one field="inscripcion" target-entity="Inscripcion" fetch="LAZY">
+      <join-columns>
+        <join-column name="inscripcion" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="liquidacion" target-entity="Liquidacion" fetch="LAZY">
+      <join-columns>
+        <join-column name="liquidacion" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
