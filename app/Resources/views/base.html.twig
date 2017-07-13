@@ -3,11 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {% stylesheets '@BaseBundle/Resources/public/bootstrap-3.3.7/css/bootstrap.min.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}{% endblock %}
+        {% javascripts 
+            '@BaseBundle/Resources/public/js/jquery-3.2.1.min.js'
+            '@BaseBundle/Resources/public/bootstrap-3.3.7/js/bootstrap.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
         {% block javascripts %}{% endblock %}
     </body>
+
 </html>
