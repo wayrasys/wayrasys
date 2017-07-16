@@ -2,14 +2,12 @@
 
 {% block body %}
     <div class="row">
-        <h1>Nueva Institución</h1>
+    <h1>Nueva Actividad</h1>
     </div>
-    
+
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" class="btn btn-default" value="Guardar" />
-        <a class="btn btn-default" href="{{ path('institucion_index') }}">Volver</a>
+        <a class="btn btn-default" href="{{ path('actividad_index') }}">Volver</a>
     {{ form_end(form) }}
-
-            
 {% endblock %}

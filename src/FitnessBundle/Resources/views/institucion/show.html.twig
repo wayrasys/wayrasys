@@ -18,10 +18,6 @@
                 <td>{{ institucion.direccion }}</td>
             </tr>
             <tr>
-                <th>Htmlpresentacion</th>
-                <td>{{ institucion.htmlpresentacion }}</td>
-            </tr>
-            <tr>
                 <th>Logo</th>
                 <td>{{ institucion.logo }}</td>
             </tr>
@@ -29,23 +25,19 @@
                 <th>Horario</th>
                 <td>{{ institucion.horario }}</td>
             </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ institucion.id }}</td>
-            </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('institucion_index') }}">Back to the list</a>
+            <a href="{{ path('institucion_index') }}">Volver</a>
         </li>
         <li>
-            <a href="{{ path('institucion_edit', { 'id': institucion.id }) }}">Edit</a>
+            <a href="{{ path('institucion_edit', { 'id': institucion.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Borrar">
             {{ form_end(delete_form) }}
         </li>
     </ul>

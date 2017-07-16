@@ -252,4 +252,8 @@ class Institucion
     {
         return $this->sucursal;
     }
+    
+    public function __toString (){
+        return $this->getNombre();
+    }
 }

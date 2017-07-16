@@ -1,49 +1,58 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Institucions list</h1>
+    <div class="row">
+    <h1>Instituciones</h1>
+    </div>
+    
+    <div class="row">
+        {% for entidad in institucions %}
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="thumbnail">
+                    <img src="..." alt="...">
+                    <div class="caption">
+                        <h3><a href="{{ path('institucion_show', { 'id': entidad.id }) }}">{{ entidad.nombre }}</a></h3>
+                        <p>{{ entidad.descripcion }}</p>
+                        <p>{{ entidad.direccion }}</p>
+                        <p>{{ entidad.horario }}</p>
+                        <p><a href="{{ path('institucion_edit', { 'id': entidad.id }) }}" class="btn btn-primary" role="button">Editar</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 
-    <table>
+    <div class="row">
+    <table class="table table-striped">
         <thead>
             <tr>
+                <th></th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
                 <th>Direccion</th>
                 <th>Htmlpresentacion</th>
-                <th>Logo</th>
                 <th>Horario</th>
-                <th>Id</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for institucion in institucions %}
             <tr>
+                <td>{{ institucion.logo }}</td>
                 <td><a href="{{ path('institucion_show', { 'id': institucion.id }) }}">{{ institucion.nombre }}</a></td>
                 <td>{{ institucion.descripcion }}</td>
                 <td>{{ institucion.direccion }}</td>
-                <td>{{ institucion.htmlpresentacion }}</td>
-                <td>{{ institucion.logo }}</td>
                 <td>{{ institucion.horario }}</td>
-                <td>{{ institucion.id }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('institucion_show', { 'id': institucion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('institucion_edit', { 'id': institucion.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('institucion_edit', { 'id': institucion.id }) }}" >Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('institucion_new') }}">Create a new institucion</a>
-        </li>
-    </ul>
+    </div>
+    <div class="row">
+        <a class="btn btn-default" href="{{ path('institucion_new') }}">Nueva</a>
+    </div>
+    
 {% endblock %}

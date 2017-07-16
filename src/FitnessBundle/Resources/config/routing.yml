@@ -1,3 +1,8 @@
+superAdmin:
+    resource: "@FitnessBundle/Resources/config/routingSuperAdmin.yml"
+    prefix:   /superAdmin
+    
+
 fitness_homepage:
     path:     /
     defaults: { _controller: FitnessBundle:Default:index }

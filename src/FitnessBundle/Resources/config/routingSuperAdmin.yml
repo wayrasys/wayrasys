@@ -1,0 +1,3 @@
+fitness_actividad:
+    resource: "@FitnessBundle/Resources/config/routing/actividad.yml"
+    prefix:   /actividad

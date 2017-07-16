@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    <h1>Actividades</h1>
+    </div>
+    
+    <div class="row">
+        {% for entidad in actividads %}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+            <div class="thumbnail">
+                <img src="..." alt="...">
+                <div class="caption">
+                    <h3><a href="{{ path('actividad_show', { 'id': entidad.id }) }}">{{ entidad.nombre }}</a></h3>
+                    <p>{{ entidad.descripcion }}</p>
+                    <p><a href="{{ path('actividad_edit', { 'id': entidad.id }) }}" class="btn btn-primary" role="button">Editar</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <a class="btn btn-default" href="{{ path('actividad_new') }}">Nueva</a>    
+    </div>
+{% endblock %}
