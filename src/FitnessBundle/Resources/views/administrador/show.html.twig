@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Administrador</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Fechaalta</th>
+                <td>{% if administrador.fechaalta %}{{ administrador.fechaalta|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Habilitado</th>
+                <td>{% if administrador.habilitado %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Log</th>
+                <td>{{ administrador.log }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ administrador.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('administrador_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('administrador_edit', { 'id': administrador.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

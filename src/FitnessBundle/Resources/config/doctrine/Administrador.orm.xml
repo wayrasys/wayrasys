@@ -25,12 +25,12 @@
         <join-column name="institucion" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="usuario" target-entity="Usuario" fetch="LAZY">
+    <many-to-one field="usuario" target-entity="UsuariosBundle\Entity\Usuario" fetch="LAZY">
       <join-columns>
         <join-column name="usuario" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="autorizadopor" target-entity="Usuario" fetch="LAZY">
+    <many-to-one field="autorizadopor" target-entity="UsuariosBundle\Entity\Usuario" fetch="LAZY">
       <join-columns>
         <join-column name="autorizadoPor" referenced-column-name="id"/>
       </join-columns>

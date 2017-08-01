@@ -1,6 +1,92 @@
-{% extends ajax ? '::base.html.twig' : '::baseEmpty.html.twig' %}
+{% extends ajax ? 'baseEmpty.html.twig' : 'base.html.twig' %}
+
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <div class="row">
+        <h1>Nuevo Usuario</h1>
+    </div>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Documento</label>
+            <div class="col-sm-10">
+                <input data-bind="text: documento" type="text" class="form-control" placeholder="Documento">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Mail</label>
+            <div class="col-sm-10">
+                <input data-bind="text: mail" type="text" class="form-control" placeholder="Mail">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+                <input data-bind="text: nobre" type="text" class="form-control" placeholder="Nombre">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Apellido</label>
+            <div class="col-sm-10">
+                <input data-bind="text: apellido" type="text" class="form-control" placeholder="Apellido">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Dirección</label>
+            <div class="col-sm-10">
+                <input data-bind="text: direccion" type="text" class="form-control" placeholder="Dirección">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Celular</label>
+            <div class="col-sm-10">
+                <input data-bind="text: celular" type="text" class="form-control" placeholder="Celular">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Teléfono</label>
+            <div class="col-sm-10">
+                <input data-bind="text: telefono" type="text" class="form-control" placeholder="Teléfono">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Fecha de Nacimiento</label>
+            <div class="col-sm-10">
+                <input data-bind="text: fechanacimiento" type="text" class="form-control" placeholder="Fecha de Nacimiento">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Facebook</label>
+            <div class="col-sm-10">
+                <input data-bind="text: facebook" type="text" class="form-control" placeholder="Facebook">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Instagram</label>
+            <div class="col-sm-10">
+                <input data-bind="text: instagram" type="text" class="form-control" placeholder="Instagram">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Guardar</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var viewModel = {
+            documento : ko.observable(""),
+            mail : ko.observable(""),
+            nombre : ko.observable(""),
+            apellido : ko.observable(""),
+            direccion : ko.observable(""),
+            celular : ko.observable(""),
+            telefono : ko.observable(""),
+            fechanaciomiento : ko.observable(""),
+            facebook : ko.observable(""),
+            instagram : ko.observable("")
+        };
+        ko.applyBindings(viewModel);
+    </script>
 {% endblock %}

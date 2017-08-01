@@ -1,0 +1,11 @@
+admin_Inicio:
+    path:     /
+    defaults: { _controller: FitnessBundle:Admin:index }
+
+fitness_actividad:
+    resource: "@FitnessBundle/Resources/config/routing/actividad.yml"
+    prefix:   /actividad
+    
+fitness_administrador:
+    resource: "@FitnessBundle/Resources/config/routing/administrador.yml"
+    prefix:   /administrador

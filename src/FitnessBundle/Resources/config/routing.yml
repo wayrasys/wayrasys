@@ -1,6 +1,6 @@
-superAdmin:
-    resource: "@FitnessBundle/Resources/config/routingSuperAdmin.yml"
-    prefix:   /superAdmin
+admin:
+    resource: "@FitnessBundle/Resources/config/routingAdmin.yml"
+    prefix:   /admin
     
 
 fitness_homepage:

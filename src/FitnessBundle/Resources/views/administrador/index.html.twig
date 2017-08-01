@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    <h1>Administradores</h1>
+    </div>
+    
+    <div class="row">
+        {% for entidad in administradors %}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+            <div class="thumbnail">
+                <img src="..." alt="...">
+                <div class="caption">
+                    <h3><a href="{{ path('actividad_show', { 'id': entidad.id }) }}">{{ entidad.nombre }}</a></h3>
+                    <p>{% if administrador.habilitado %}Si{% else %}No{% endif %}</p>
+                    <p>{{ administrador.fechaalta }}</p>
+                    <p><a href="{{ path('administrador_edit', { 'id': administrador.id }) }}"class="btn btn-primary" role="button">Editar</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <a class="btn btn-default" href="{{ path('administrador_new') }}">Nuevo</a>
+    </div>
+{% endblock %}

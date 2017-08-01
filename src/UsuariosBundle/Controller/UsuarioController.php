@@ -43,6 +43,7 @@ class UsuarioController extends BaseController
             return $this->redirectToRoute('usuarios_homepage');
         }
 
+        return $this->renderRequest($request, 'UsuariosBundle:Usuario:nuevo.html.twig');
 
         return $this->renderRequest($request, 'UsuariosBundle:Usuario:nuevo.html.twig', array(
             'form' => $form->createView()

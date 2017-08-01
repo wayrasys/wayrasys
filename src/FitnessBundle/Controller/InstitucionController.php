@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 /**
  * Institucion controller.
  *
- * @Route("superAdmin/institucion")
+ * @Route("admin/institucion")
  */
 class InstitucionController extends Controller
 {
